@@ -30,20 +30,19 @@ After a handle expires, determining a good 'next owner' is a difficult problem t
 | Day 0, Hour 1   | 97153878.78 wUSDC.b |
 | Day 0, Hour 12  | 70710677.75 wUSDC.b |
 | Day 1, Hour 0   | 49999999.63 wUSDC.b |
-| Day 1, Hour 12  |                     |
-| Day 2, Hour 0   |                     |
-| Day 3, Hour 0   | TODO                |
-| Day 7, Hour 0   |                     |
-| Day 14, Hour 0  |                     |
-| Day 21, Hour 0  |                     |
-| Day 27, Hour 0  |                     |
-| Day 28, Hour 0  |                     |
-| Day 28, Hour 22 |                     |
-| Day 28, Hour 23 |                     |
-| Day 28, Hour 24 |                     |
+| Day 1, Hour 12  | 35355338.69 wUSDC.b |
+| Day 2, Hour 0   | 24999999.63 wUSDC.b |
+| Day 3, Hour 0   | 12499999.63 wUSDC.b |
+| Day 7, Hour 0   | 781249.628 wUSDC.b  |
+| Day 14, Hour 0  | 6103.143 wUSDC.b    |
+| Day 21, Hour 0  | 47.311 wUSDC.b      |
+| Day 27, Hour 0  | 0.373 wUSDC.b       |
+| Day 28, Hour 22 | 0.033 wUSDC.b       |
+| Day 28, Hour 23 | 0.019 wUSDC.b       |
+| Day 28, Hour 24 | 0.008 wUSDC.b       |
 
 Note that the exponential premium puzzle approximates the floating value of `start_premium / 2**(time_passed /auction_start)` , with an auction taking exactly 28 days. The overall effect is that the premium halves every day, but it also takes intermediary values throughout the day. The staring premium is calculated such that the premium value after the last second is rounded down to 0. The hourly evolution of the premium can be seen in the table below:
 
-TODO
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Premium decreases exponentially until day 28, when it reaches 0</p></figcaption></figure>
 
 _Written by_ [_yakuhito_](https://x.com/yakuh1t0) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Feb 15th, 2025._
