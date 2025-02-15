@@ -5,6 +5,5 @@
 ## Techincal Manual
 
 * [Pricing Puzzles](techincal-manual/pricing-puzzles.md)
-* [Expiration Pricing Puzzles](techincal-manual/expiration-pricing-puzzles.md)
 * [XCHandles](techincal-manual/xchandles.md)
 * [DIG Reward Distributor](techincal-manual/dig-reward-distributor.md)
