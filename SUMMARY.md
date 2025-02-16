@@ -20,3 +20,4 @@
   * [The Add Mirror Action](techincal-manual/dig-reward-distributor/the-add-mirror-action.md)
   * [The Remove Mirror Action](techincal-manual/dig-reward-distributor/the-remove-mirror-action.md)
   * [The Withdraw Incentives Action](techincal-manual/dig-reward-distributor/the-withdraw-incentives-action.md)
+  * [The Initiate Payout Action](techincal-manual/dig-reward-distributor/the-initiate-payout-action.md)
