@@ -16,3 +16,4 @@
   * [The Sync Action](techincal-manual/dig-reward-distributor/the-sync-action.md)
   * [The New Epoch Action](techincal-manual/dig-reward-distributor/the-new-epoch-action.md)
   * [The Add Incentives Action](techincal-manual/dig-reward-distributor/the-add-incentives-action.md)
+  * [The Commit Incentives Action](techincal-manual/dig-reward-distributor/the-commit-incentives-action.md)
