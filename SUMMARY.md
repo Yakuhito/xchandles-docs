@@ -11,4 +11,5 @@
   * [The Extend Action](techincal-manual/xchandles/the-extend-action.md)
   * [The Expire Action](techincal-manual/xchandles/the-expire-action.md)
   * [The Oracle Action](techincal-manual/xchandles/the-oracle-action.md)
+  * [The Update Action](techincal-manual/xchandles/the-update-action.md)
 * [DIG Reward Distributor](techincal-manual/dig-reward-distributor.md)
