@@ -12,5 +12,6 @@
   * [The Expire Action](techincal-manual/xchandles/the-expire-action.md)
   * [The Oracle Action](techincal-manual/xchandles/the-oracle-action.md)
   * [The Update Action](techincal-manual/xchandles/the-update-action.md)
-* [DIG Reward Distributor](techincal-manual/dig-reward-distributor/README.md)
+* [DIG Reward Distributor](techincal-manual/dig-reward-distributor.md)
   * [The Sync Action](techincal-manual/dig-reward-distributor/the-sync-action.md)
+  * [The New Epoch Action](techincal-manual/dig-reward-distributor/the-new-epoch-action.md)
