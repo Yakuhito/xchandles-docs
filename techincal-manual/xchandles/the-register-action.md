@@ -24,4 +24,6 @@ The precommitment coin for XCHandles also holds more values. The reveal of its o
 * **start\_time** is a timestamp in the past that represents the start time of the handle registration
 * **new\_owner\_launcher\_id** & **new\_resolved\_launcher\_id** are self-explanatory and correspond to the new handle (i.e., the one being registered)
 
+The action also creates a puzzle announcement that be asserted to ensure the dApp singleton is running the right action with the right parameters. For the register action, the announcement prefix, `r` , is concatenated to `(sha256tree (handle new_expiration new_owner_launcher_id . new_resolved_launcher_id)` .
+
 _Written by_ [_yakuhito_](https://x.com/yakuh1t0) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Feb 15th, 2025._

@@ -8,4 +8,5 @@
 * [XCHandles](techincal-manual/xchandles/README.md)
   * [The Register Action](techincal-manual/xchandles/the-register-action.md)
   * [The Refund Action](techincal-manual/xchandles/the-refund-action.md)
+  * [The Extend Action](techincal-manual/xchandles/the-extend-action.md)
 * [DIG Reward Distributor](techincal-manual/dig-reward-distributor.md)
