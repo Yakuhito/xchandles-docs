@@ -5,6 +5,7 @@
 ## Techincal Manual
 
 * [Pricing Puzzles](techincal-manual/pricing-puzzles.md)
+* [State Scheduler](techincal-manual/state-scheduler.md)
 * [XCHandles](techincal-manual/xchandles/README.md)
   * [The Register Action](techincal-manual/xchandles/the-register-action.md)
   * [The Refund Action](techincal-manual/xchandles/the-refund-action.md)
