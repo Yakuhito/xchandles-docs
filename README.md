@@ -16,7 +16,7 @@ New handles are priced based on length. Handles containing at least one number h
 
 ### What happens when a handle expires?
 
-Immediately after a handle expires, a reverse auction begins. The handle is priced as the normal price plus a premium. The premium begins at \~100.000.000 wUSDC.b and decreases continuously, halving each day. The first user to pay the current price will receive the handle. The premium becomes 0 28 days after an auction started, allowing anyone to register the handle at its normal price if no bids have been made.
+Immediately after a handle expires, an [expiration auction](techincal-manual/pricing-puzzles.md#exponential-premium) begins. The handle is valued at the normal price plus a premium. The premium begins at \~100.000.000 wUSDC.b and decreases continuously each second, halving each day. The first user to pay the current auction price will receive the handle. The premium becomes 0 28 days after an auction started, allowing anyone to register the handle at its normal price if no bids have been made.
 
 ### How should I refer to XCHandles?
 
