@@ -2,7 +2,7 @@
 description: Efficient continuous payouts
 ---
 
-# DIG Reward Distributor
+# Reward Distributors
 
 First detailed in [DIP-0002](https://github.com/DIG-Network/DIPS/blob/main/DIPs/dip-0002.md), the DIG Reward Distributor can be seen as a permissioned liquidity farm. A validator sets and removes active mirrors, each with a corresponding number of shares. During 1-week epoch, rewards committed by anyone are continuously allocated to active mirrors based on their shares. Payout transactions can be triggered by anyone, and payouts are automatically made when a mirror becomes offline.
 
@@ -24,8 +24,12 @@ The DIG reward distributor is the first app to use different types of slots. As 
 
 * **Nonce 1**: Reward slots. These hold `(epoch_start next_epoch_initialized . rewards)`. The epoch start timestamp is considered the slot's 'key' and should be unique. The second argument is 1 if the next epoch has been initialized - i.e., a slot exists with a key of `epoch_start + EPOCH_SECONDS`. The last value in the slot keeps track of the total amount of rewards committed to the epoch, including the validator fee (which will be deducted when the epoch starts). Note that a slot will no longer be accurate when the epoch starts, as anyone can add rewards to the current epoch (which does not modify 'rewards'). Moreover, undistributed rewards from previous epochs (i.e., 'change' that cannot be distributed to mirrors) will also be added to the rewards of the epoch. For example, if there are 7 shares, it's possible that a change of 5 mojos might exist, which will be 'carried over' the next epoch. Lastly, the validator will be paid out \~x% of the rewards, where x is a constant defined at reward distributor launch.
 * **Nonce 2**: Commitment slots. These hold `(epoch_start clawback_ph  . rewards)`and function as 'tickets' that allow users that committed funds to a future epoch to claw part of their funds back.
-* **Nonce 3**: Mirror slots. These hold `(payout_puzzle_hash initial_cumulative_payout . shares)` . The first argument identifies a mirror by its payout puzzle hash. Shares describe how much a mirror should be rewarded (approx. shares / total\_shares \* rewards\_per\_second for every second). The cumulative payout describes how much a theoretical mirror holding 1 share that has been active since registry launch should be paid. By calculating the difference of the current value to that of the value when the mirror was added, we can say how much a share was rewarded since the mirror was active (or last claimed its rewards). Since all shares are paid equally, multiplying the difference by the amount of shares yields the payout amount for a mirror.
+* **Nonce 3**: Entry slots. These hold `(payout_puzzle_hash initial_cumulative_payout . shares)` . The first argument identifies an entry (e.g., mirror) by its payout puzzle hash. Shares describe how much an entry should be rewarded (approx. `shares / total_shares * rewards_per_second` for every second). The cumulative payout describes how much a theoretical entry holding 1 share that has been active since registry launch should be paid. By calculating the difference between the current value and the value when the entry was added, we can say how much a share needs to be paid. Since all shares are paid equally, multiplying the difference by the amount of shares yields the payout amount for a given recipient.
 
-Note that neither nonce 0 nor None (i.e., no nonce) are used for the DIG Reward Distributor.
+Note that neither nonce 0 nor None (i.e., no nonce) are used for the Reward Distributor.
+
+### The NFT Reward Distributor
+
+The reward distributor was subsequently updated to also enable distributing rewards in a permissionless manner to NFT owners. More specifically, the add and remove entry actions can be swapped to stake and unstake actions. These allow people to temporarily lock in an NFT from a given collection (identified by minter DID) for a share of the distributor rewards. Each NFT is weighted equally in distribution calculation (i.e., all NFTs have 1 share each).
 
 _Written by_ [_yakuhito_](https://x.com/yakuh1t0) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Feb 16th, 2025._
