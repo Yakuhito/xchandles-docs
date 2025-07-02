@@ -23,4 +23,6 @@
   * [Managed Reward Distributor](techincal-manual/reward-distributors/managed-reward-distributor/README.md)
     * [The Add Entry Action](techincal-manual/reward-distributors/managed-reward-distributor/the-add-entry-action.md)
     * [The Remove Entry Action](techincal-manual/reward-distributors/managed-reward-distributor/the-remove-entry-action.md)
-  * [NFT Reward Distributor](techincal-manual/reward-distributors/nft-reward-distributor.md)
+  * [NFT Reward Distributor](techincal-manual/reward-distributors/nft-reward-distributor/README.md)
+    * [The Stake Action](techincal-manual/reward-distributors/nft-reward-distributor/the-stake-action.md)
+    * [The Unstake Action](techincal-manual/reward-distributors/nft-reward-distributor/the-unstake-action.md)
