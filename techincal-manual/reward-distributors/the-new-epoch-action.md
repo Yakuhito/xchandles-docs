@@ -4,7 +4,7 @@ description: Transitions to a new reward period
 
 # The New Epoch Action
 
-_Note_: The new epoch action code be found [here](https://github.com/Yakuhito/slot-machine/blob/master/puzzles/actions/dig/new_epoch.clsp).
+_Note_: The new epoch action code be found [here](https://github.com/Yakuhito/slot-machine/blob/master/puzzles/actions/reward_distributor/new_epoch.clsp).
 
 Because reward rates might change, the DIG Reward Distributor uses the concept of 'epochs', which are simply one-week periods. The rewards committed to each epoch may be different. Inside each round, rewards are distributed linearly (e.g., \~25% of the rewards will be distributed after 25% of the time in the round has passed).
 

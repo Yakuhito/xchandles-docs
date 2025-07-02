@@ -4,7 +4,7 @@ description: Where the interesting math is found
 
 # The Sync Action
 
-_Note_: The sync action code be found [here](https://github.com/Yakuhito/slot-machine/blob/master/puzzles/actions/dig/sync.clsp).
+_Note_: The sync action code be found [here](https://github.com/Yakuhito/slot-machine/blob/master/puzzles/actions/reward_distributor/sync.clsp).
 
 The sync action is used to distribute rewards since the last reward distribution. The cumulative payout grows by `(/ (* remaining_rewards (- update_time last_update)) (* active_shares (- epoch_end last_update)))` . In essence, `(/ (- update_time last_update) (- epoch_end last_update))`  represents the fraction of time passed compared to the remaining time in the round. Multiplying this by the remaining rewards amount yields the rewards to be distributed. Dividing the results by the number of active shares will return the change in cumulative payout, which is always defined for one share. Note that this result is 'rounded down' by division operations, and that the 'change' is stored in the new state's `remaining_rewards`.
 
