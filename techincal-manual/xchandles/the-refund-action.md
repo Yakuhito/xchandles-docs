@@ -4,7 +4,7 @@ description: Where registrations gone wrong are fixed
 
 # The Refund Action
 
-_Note_: The refund action code be found [here](https://github.com/Yakuhito/slot-machine/blob/master/puzzles/actions/xchandles/refund.clsp).
+_Note_: The refund action code be found [here](https://github.com/Yakuhito/slot-machine/blob/master/rue-puzzles/actions/xchandles/refund.rue) ([Chialisp](https://github.com/Yakuhito/slot-machine/blob/master/puzzles/actions/xchandles/refund.clsp)).
 
 This action is very similar to the [CATalog refund action](https://docs.catalog.cat/technical-manual/catalog/the-refund-action), except that the pricing puzzle might either be a 'normal' or 'expiry auction' one. A precommit coin can be clawed back in the following cases:
 

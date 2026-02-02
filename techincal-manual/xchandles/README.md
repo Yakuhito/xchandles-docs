@@ -12,4 +12,10 @@ Note that the XCHandles registry also includes a [delegated state action](https:
 
 Generally, announcements and messages from the main registry are sent using a one-byte prefix followed by a hash of the actual message contents. To prevent collisions, the prefixes and message structures are defined in a single file ([here](https://github.com/xch-dev/chia-wallet-sdk/blob/main/crates/chia-sdk-driver/src/primitives/action_layer/xchandles_registry_prefix.rs)).
 
+### Slots
+
+Handle slots contain data about registered handles and use a nonce of **1**. Slots tracking initiated updates use a nonce of **2**. More information about the data held in these slots can be found under [The Register Action](the-register-action.md) and [The Initiate Update Action](the-initiate-update-action.md).
+
+
+
 _Written by_ [_yakuhito_](https://x.com/yakuh1t0) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Feb 15th, 2025._
