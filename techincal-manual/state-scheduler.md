@@ -4,7 +4,7 @@ description: Deterministic sate changes
 
 # State Scheduler
 
-_Note_: The state scheduler puzzle can be found [here](https://github.com/Yakuhito/slot-machine/blob/master/puzzles/singleton/state_scheduler.clsp).
+_Note_: The state scheduler puzzle can be found [here](https://github.com/Yakuhito/slot-machine/blob/master/rue-puzzles/singleton/state_scheduler.rue) ([Chialisp](https://github.com/Yakuhito/slot-machine/blob/master/puzzles/singleton/state_scheduler.clsp)).
 
 If you're launching a handle registry, one thing to copy from the DNS world is the initial handle auction. During the launch period, handles should be more expensive than normal, with price decreasing until it reaches the terminal ('normal') value. This ensures that people that really want a handle have a chance to register it by paying a premium, while also discouraging a single actor coming in and registering all 'rare' handles.
 
