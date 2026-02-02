@@ -61,4 +61,4 @@ More generally, auction puzzles will have the same return as a normal pricing pu
 
 The auction pricing puzzle may then accept an arbitrary solution. The exponential premium puzzle uses the order of truths to run the normal pricing in order to determine the 'true price' of a handle. The first two truths can be prepended to `pricing_program_solution`, which can then be used to evaluate the normal pricing puzzle (curried in via `BASE_PROGRAM` ). This pattern allows the exponential premium puzzle to add the time-dependent premium to a handle's base price, making sure the price at the end of auction is the same as the price if the handle were registered the first time (effectively 'ending' the auction).
 
-_Written by_ [_yakuhito_](https://x.com/yakuh1t0) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Feb 15th, 2025._
+_Written by_ [_yakuhito_](https://x.com/yakuhito) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Feb 15th, 2025._

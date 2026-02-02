@@ -18,4 +18,4 @@ Handle slots contain data about registered handles and use a nonce of **1**. Slo
 
 
 
-_Written by_ [_yakuhito_](https://x.com/yakuh1t0) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Feb 15th, 2025._
+_Written by_ [_yakuhito_](https://x.com/yakuhito) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Feb 15th, 2025._

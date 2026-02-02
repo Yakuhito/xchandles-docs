@@ -28,4 +28,4 @@ As the name suggests, the CAT locking puzzle allows a CAT with a certain asset i
 
 
 
-_Written by_ [_yakuhito_](https://x.com/yakuh1t0) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Jul 2nd, 2025._
+_Written by_ [_yakuhito_](https://x.com/yakuhito) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Jul 2nd, 2025._

@@ -14,4 +14,4 @@ Note that singletons with the state scheduler code can be spent by anyone. Becau
 
 When the price singleton's first generations will contain state schedulers, the `kv_list` argument of the singleton launcher will hint it. Particularly, the format for the variable (defined [here](https://github.com/Yakuhito/slot-machine/blob/4495af3cff6b0bf44cc96acf0b5a72db4e0430a7/src/primitives/state_scheduler_info.rs#L162)) is `(price_singleton_launcher_id registry_singleton_id final_puzzle_hash state_schedule . final_puzzle_memos)`, where the final puzzle hash specifies the 'custody' inner puzzle hash the price singleton will eventually have and the state schedule is a cons-box list where each item's first value is the relative block height and the second is the updated state. The last argument can be used to describe the final puzzle in more detail (it may contain multisig data, for example).
 
-_Written by_ [_yakuhito_](https://x.com/yakuh1t0) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Feb 21st, 2025._
+_Written by_ [_yakuhito_](https://x.com/yakuhito) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Feb 21st, 2025._

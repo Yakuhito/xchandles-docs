@@ -55,4 +55,4 @@ Note that neither nonce 0/None (i.e., no nonce) are used for the Reward Distribu
 
 For non-manager modes, the [Add Entry](managed-reward-distributor/the-add-entry-action.md) and [Remove Entry](managed-reward-distributor/the-remove-entry-action.md) actions are replaced by [Stake](other-reward-distributors/the-stake-action.md) and [Unstake](other-reward-distributors/the-unstake-action.md) actions, each containing a specific locking puzzles (as detailed on the stake action page). Moreover, the [Initiate Payout](the-initiate-payout-action.md) action can be set to one of two puzzles, depending on whether the recipient needs to approve a payment or not.&#x20;
 
-_Written by_ [_yakuhito_](https://x.com/yakuh1t0) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Feb 16th, 2025._
+_Written by_ [_yakuhito_](https://x.com/yakuhito) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Feb 16th, 2025._

@@ -14,4 +14,4 @@ While an entry's rewards are calculated using `cat_unit * PRECISION`, payouts ca
 
 The action also creates a puzzle announcement that be asserted to ensure the dApp singleton is running the right action with the right parameters. For the initiate payout action, the announcement prefix, `p`, is concatenated to `(sha256tree (c entry_payout_puzzle_hash entry_payout_amount))` .
 
-_Written by_ [_yakuhito_](https://x.com/yakuh1t0) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Feb 16th, 2025._
+_Written by_ [_yakuhito_](https://x.com/yakuhito) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Feb 16th, 2025._

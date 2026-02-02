@@ -14,4 +14,4 @@ The singleton keeps track of initiated updates via update slots. An update slot'
 
 This puzzle does not create a puzzle announcement, as the owner can be assured the update is initiated only if the message sent to the singleton is consumed. An initiated updated is canceled simply by spending the child of the owner singleton coin that initiated it.
 
-_Written by_ [_yakuhito_](https://x.com/yakuh1t0) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Feb 15th, 2025._
+_Written by_ [_yakuhito_](https://x.com/yakuhito) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Feb 15th, 2025._

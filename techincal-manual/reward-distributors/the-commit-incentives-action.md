@@ -12,4 +12,4 @@ This action can affect slots in two different ways. First, if the reward slot co
 
 The action also creates a puzzle announcement that be asserted to ensure the dApp singleton is running the right action with the right parameters. For the commit incentives action, the announcement prefix, `c`, is concatenated to `(sha256tree (epoch_time next_epoch_time . total_rewards))` , which is also the value hash of the commitment slot that is created.&#x20;
 
-_Written by_ [_yakuhito_](https://x.com/yakuh1t0) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Feb 16th, 2025._
+_Written by_ [_yakuhito_](https://x.com/yakuhito) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Feb 16th, 2025._

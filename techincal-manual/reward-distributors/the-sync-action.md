@@ -12,4 +12,4 @@ Syncing can only be done for the current epoch - when the epoch ends (i.e., `las
 
 The action also creates a puzzle announcement that be asserted to ensure the dApp singleton is running the right action with the right parameters. For the sync action, the announcement prefix, `s`, is concatenated to `(sha256tree (update_time . epoch_end))`.
 
-_Written by_ [_yakuhito_](https://x.com/yakuh1t0) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Feb 16th, 2025._
+_Written by_ [_yakuhito_](https://x.com/yakuhito) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Feb 16th, 2025._

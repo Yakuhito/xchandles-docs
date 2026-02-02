@@ -10,4 +10,4 @@ Once an update has been [initiated](the-initiate-update-action.md) and a minimum
 
 This puzzle does not create a puzzle announcement, as the owner can be assured the update is executed only if the message sent to the singleton is consumed.&#x20;
 
-_Written by_ [_yakuhito_](https://x.com/yakuh1t0) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Feb 2nd, 2026._
+_Written by_ [_yakuhito_](https://x.com/yakuhito) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Feb 2nd, 2026._

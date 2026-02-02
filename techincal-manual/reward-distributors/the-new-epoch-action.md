@@ -17,4 +17,4 @@ When a new epoch starts, the committed rewards, which were previously stored as 
 
 The action also creates a puzzle announcement that be asserted to ensure the dApp singleton is running the right action with the right parameters. For the new epoch action, the announcement prefix, `e`, is concatenated to `(sha256tree epoch_end)`.
 
-_Written by_ [_yakuhito_](https://x.com/yakuh1t0) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Feb 16th, 2025._
+_Written by_ [_yakuhito_](https://x.com/yakuhito) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Feb 16th, 2025._
