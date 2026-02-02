@@ -10,7 +10,7 @@ Before proceeding, it's highly recommended that you familiarize yourself with th
 
 Note that the XCHandles registry also includes a [delegated state action](https://docs.catalog.cat/technical-manual/other-useful-concepts#the-delegated-state-action).
 
-Generally, announcements and messages from the main registry are sent using a one-byte prefix followed by a hash of the actual message contents. To prevent collisions, the prefixes and message structures are defined in a single file ([here](https://github.com/xch-dev/chia-wallet-sdk/blob/main/crates/chia-sdk-driver/src/primitives/action_layer/xchandles_registry_prefix.rs)).
+Generally, announcements and messages from the main registry are sent using a one-byte prefix followed by a hash of the actual message contents. To prevent collisions, the prefixes and message structures are defined in a single file ([here](https://github.com/Yakuhito/slot-machine-chia-wallet-sdk/blob/main/crates/chia-sdk-driver/src/primitives/action_layer/xchandles_registry_prefix.rs)).
 
 ### Slots
 

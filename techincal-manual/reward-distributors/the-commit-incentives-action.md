@@ -4,7 +4,7 @@ description: '"I''ll probably incentivize this future round"'
 
 # The Commit Incentives Action
 
-_Note_: The commit incentives action code be found [here](https://github.com/Yakuhito/slot-machine/blob/master/puzzles/actions/reward_distributor/commit_incentives.clsp).
+_Note_: The commit incentives action code be found [here](https://github.com/DIG-Network/reward-distributor-clsp/blob/main/rue-puzzles/actions/reward-distributor/commit_incentives.rue) ([Chialisp](https://github.com/DIG-Network/reward-distributor-clsp/blob/main/puzzles/actions/reward_distributor/commit_incentives.clsp)).
 
 Unlike adding incentives, commitments are not necessarily binding. Rewards committed to a future epoch can be clawed back (minus a % fee) until the corresponding epoch starts.
 
