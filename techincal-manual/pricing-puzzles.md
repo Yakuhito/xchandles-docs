@@ -10,7 +10,7 @@ The way pricing puzzles work was mainly informed by observations from Ethereum N
 
 ### _Factor Pricing_
 
-_Note_: The factor pricing puzzle can be found [here](https://github.com/Yakuhito/slot-machine/blob/master/puzzles/default_puzzles/factor_pricing.clsp).
+_Note_: The factor pricing puzzle can be found [here](https://github.com/Yakuhito/slot-machine/blob/master/rue-puzzles/default_puzzles/factor_pricing.rue) ([Chialisp](https://github.com/Yakuhito/slot-machine/blob/master/puzzles/default_puzzles/factor_pricing.clsp)).
 
 This 'factor' pricing strategy allows handles to be priced similar to [ENS domains](https://docs.ens.domains/faq#what-does-it-cost-to-register-a-eth-domain). The price is determined as the base price (a curried in parameter) multiplied by a factor which depends on two variables: the handle's length (shorter handles will be more expensive) and whether the handle contains numbers (handles containing numbers cost half of what their only-characters counterparts do). The table below describes the prices for handle registration/renewal **per year** (to get the price for three years, for example, one would have to multiply the values in the table by 3 - there is no discount).
 
@@ -18,7 +18,7 @@ This 'factor' pricing strategy allows handles to be priced similar to [ENS domai
 
 The table assumes a **base price** of 5.00 wUSDC.b (5000 when translated to CAT mojos). Note that the payment token is determined by the CAT maker - wUSDC.b is the token registrations are planned to be priced in after mainnet launch. One year is the normal registration period, but other subregistries may choose other periods - DIG handles, for example, plans to price registrations per week.
 
-More generally, pricing puzzles return `(price . registration_delta_seconds)`, where `price`is the amount of payment CATs to be paid and `registration_delta_seconds` is a positive integer representing the number of seconds the registration should be extended for. Pricing puzzles have a solution that always starts with three truths:
+More generally, pricing puzzles return `(price . registration_delta_seconds)`, where `price` is the amount of payment CATs to be paid and `registration_delta_seconds` is a positive integer representing the number of seconds the registration should be extended for. Pricing puzzles have a solution that always starts with three truths:
 
 * `Buy_Time`: this is a timestamp verified to be in the past. Not used in the factor pricing puzzle, but added so the solution format is consistent with the exponential premium puzzle solution.
 * `Current_Expiration` , which is the verified current expiration of the handle whose price is being quoted. This will only be '0' if the handle is being registered. The factor pricing puzzle does not use this truth.
@@ -28,7 +28,7 @@ The two truths may be followed by an arbitrary solution. For the factor pricing 
 
 ### _Exponential Premium_
 
-_Note_: The exponential premium puzzle can be found [here](https://github.com/Yakuhito/slot-machine/blob/master/puzzles/default_puzzles/exponential_premium.clsp).
+_Note_: The exponential premium puzzle can be found [here](https://github.com/Yakuhito/slot-machine/blob/master/rue-puzzles/default_puzzles/exponential_premium.rue) ([Chialisp](https://github.com/Yakuhito/slot-machine/blob/master/puzzles/default_puzzles/exponential_premium.clsp)).
 
 After a handle expires, determining a good 'next owner' is a difficult problem to solve. A clever solution is currently being used by ENS: whoever wants the handle the most would be willing to pay more for it, so auctioning the handle is a good way to go. The price starts at a high value and then decreases each second - giving everyone the chance to register it at the price they consider 'fair.' Linear pricing (e.g., the price decreases $5/hour) is unlikely to work because starting at a price no one would be willing to pay (e.g., $100 million) would result in an auction that is either too long or too short (the price decreases very rapidly). Instead, XCHandles implements an 'exponential premium' pricing strategy, where the auction starts with a very high value and the premium halves every 24 hours. The table below shows how the premium evolves over a 28-day auction when it starts at 100,000,000 wUSDC.b:&#x20;
 
@@ -53,7 +53,7 @@ Note that the exponential premium puzzle approximates the floating value of `sta
 
 <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Premium decreases exponentially until day 28, when it reaches 0</p></figcaption></figure>
 
-More generally, auction puzzles will have the same return as a normal pricing puzzle, namely `(premium . registration_delta_seconds)`. The main difference is that the puzzle accepts three truths:
+More generally, auction puzzles will have the same return as a normal pricing puzzle, namely `(premium . registration_delta_seconds)`. They will also accept the same three truths:
 
 * `Buy_Time`: this is a verified timestamp that can be treated as 'time now.' The registry makes sure that the timestamp happened before the last transaction block's timestamp, but the user is financially motivated to provide a value as big (late) as possible since the auction puzzle would lower its premium for bigger timestamps.
 * `Expiration`: the current expiration of the name, which was checked to be in the past. Note that expiration can't normally be 0.
