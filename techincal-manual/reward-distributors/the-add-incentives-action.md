@@ -4,7 +4,7 @@ description: Current epoch rocks - let's add some rewards to it
 
 # The Add Incentives Action
 
-_Note_: The add incentives action code be found [here](https://github.com/DIG-Network/reward-distributor-clsp/blob/main/rue-puzzles/actions/reward-distributor/add_incentives.rue) ([Chialisp](https://github.com/DIG-Network/reward-distributor-clsp/blob/main/puzzles/actions/reward_distributor/add_incentives.clsp)).
+_Note_: The add incentives action code be found [here](https://github.com/DIG-Network/reward-distributor-clsp/blob/main/rue-puzzles/actions/reward_distributor/add_incentives.rue) ([Chialisp](https://github.com/DIG-Network/reward-distributor-clsp/blob/main/puzzles/actions/reward_distributor/add_incentives.clsp)).
 
 This action simply adds incentives to the current round. The new rewards will be continuously distributed in a linear fashion from `last_update` until `epoch_end`. They cannot be clawed back.
 

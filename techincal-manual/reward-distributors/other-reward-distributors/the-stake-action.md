@@ -4,7 +4,7 @@ description: 'NFT/CAT: locked.'
 
 # The Stake Action
 
-_Note_: The stake action code be found [here](https://github.com/Yakuhito/slot-machine/blob/master/puzzles/actions/reward_distributor/nft/stake.clsp) ([Chialisp](https://github.com/DIG-Network/reward-distributor-clsp/blob/main/puzzles/actions/reward_distributor/staking/stake.clsp)). The code for locking puzzles can be found [here](https://github.com/DIG-Network/reward-distributor-clsp/tree/main/rue-puzzles/actions/reward-distributor/staking/locking_puzzles) ([Chialisp](https://github.com/DIG-Network/reward-distributor-clsp/tree/main/puzzles/actions/reward_distributor/staking/locking_puzzles)).
+_Note_: The stake action code be found [here](https://github.com/DIG-Network/reward-distributor-clsp/blob/main/rue-puzzles/actions/reward_distributor/staking/stake.rue) ([Chialisp](https://github.com/DIG-Network/reward-distributor-clsp/blob/main/puzzles/actions/reward_distributor/staking/stake.clsp)). The code for locking puzzles can be found [here](https://github.com/DIG-Network/reward-distributor-clsp/tree/main/rue-puzzles/actions/reward_distributor/staking/locking_puzzles) ([Chialisp](https://github.com/DIG-Network/reward-distributor-clsp/tree/main/puzzles/actions/reward_distributor/staking/locking_puzzles)).
 
 This action adds an entry to the active entries of the reward distributor. The entry immediately starts earning rewards in the active epoch. A general locking puzzle asserts the appropriate asset with the appropriate amount has been deposited to the distributor (i.e., becomes locked with the `p2_singleton` inner puzzle) by using a settlement payments announcement.
 
