@@ -12,7 +12,7 @@ In all variations of the distributor, anyone can commit funds to be distributed 
 
 The DIG Reward Distributor (manager mode) was mainly designed by [Michael Taylor ](https://github.com/MichaelTaylor3D)and implemented in Chialisp by [yakuhito](https://github.com/yakuhito). The NFT mode (DID/collection) was later added for community use. The first UI, [rewards.fireacademy.io](https://rewards.fireacademy.io/), powered the alpha deployment of the first version of distributors, allowing [DataLayer Minions](https://mintgarden.io/collections/datalayer-minions-col1k86fjeaje70hhy46yp4c2jfuhddlt66zcd6mw86zzy2d4egage3sa302t4) NFT holders to stake their minions for DIG tokens. A [precision issue](https://blog.fireacademy.io/p/too-discrete-to-handle-how-low-cat) was identified as a result of the alpha. The bug was fixed with the introduction of the latest (V2) version of the distributor, which also added the other two modes, allowing curated NFT and CAT reward distributors.
 
-Generally, announcements and messages from the main registry are sent using a one-byte prefix followed by a hash of the actual message contents. To prevent collisions, the prefixes and message structures are defined in a single file ([here](https://github.com/Yakuhito/slot-machine-chia-wallet-sdk/blob/main/crates/chia-sdk-driver/src/primitives/action_layer/reward_distributor_prefix.rs)).
+Generally, announcements and messages from the main registry are sent using a one-byte prefix followed by a hash of the actual message contents. To prevent collisions, the prefixes and message structures are defined in a single file ([here](https://github.com/Yakuhito/chia-wallet-sdk/blob/main/crates/chia-sdk-driver/src/primitives/action_layer/reward_distributor_prefix.rs)).
 
 ### State
 
@@ -39,7 +39,7 @@ export struct RewardDistributorState {
 
 ### Reserve
 
-Another difference when compared to XCHandles/CATalog is that the DIG Reward Distributor manages funds. Specifically, a CAT determined at launch is used for rewards. This means that the reward distributor uses a single-reserve finalizer, as described [here](https://docs.catalog.cat/technical-manual/action-layer). The finalizer automatically detects output conditions starting with the special opcode `-42`and makes the reserve output them instead of the singleton - this is useful for facilitating payouts. Moreover, the finalzier automatically re-creates the reserve, ensuring it stores an amount of `total_reserves`  mojos (taken from the latest state).
+Another difference when compared to XCHandles/CATalog is that the DIG Reward Distributor manages funds. Specifically, a CAT determined at launch is used for rewards. This means that the reward distributor uses a single-reserve finalizer, as described [here](https://docs.catalog.cat/technical-manual/action-layer). The finalizer automatically detects output conditions starting with the special opcode `-42`and makes the reserve output them instead of the singleton - this is useful for facilitating payouts. Moreover, the finalizer automatically re-creates the reserve, ensuring it stores an amount of `total_reserves`  mojos (taken from the latest state).
 
 ### Slots
 

@@ -4,10 +4,10 @@ description: This handle is awesome - may I please have it for longer?
 
 # The Extend Action
 
-_Note_: The refund action code be found [here](https://github.com/Yakuhito/slot-machine/blob/master/rue-puzzles/actions/xchandles/extend.rue) ([Chialisp](https://github.com/Yakuhito/slot-machine/blob/master/puzzles/actions/xchandles/extend.clsp)).
+_Note_: The extend action code can be found [here](https://github.com/Yakuhito/slot-machine/blob/master/rue-puzzles/actions/xchandles/extend.rue) ([Chialisp](https://github.com/Yakuhito/slot-machine/blob/master/puzzles/actions/xchandles/extend.clsp)).
 
 Most users will want to extend the time their handle registrations. Extending is simpler than a registration because the slot has already been created, meaning some checks (e.g., left vs. right neighbor) can be skipped. Moreover, extending doesn't require a commit-reveal pattern, as the handle is already known and belongs to an owner. The process can thus be compressed to one transaction using offer announcements to assert payment.
 
-The action also creates a puzzle announcement that be asserted to ensure the dApp singleton is running the right action with the right parameters. For the extend action, the announcement prefix, `e`, is concatenated to `(sha256tree (total_price . handle))` .
+The action also creates a puzzle announcement that can be asserted to ensure the dApp singleton is running the right action with the right parameters. For the extend action, the announcement prefix, `e`, is concatenated to `(sha256tree (total_price . handle))` .
 
 _Written by_ [_yakuhito_](https://x.com/yakuhito) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Feb 15th, 2025._

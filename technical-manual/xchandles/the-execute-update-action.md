@@ -4,7 +4,7 @@ description: This is your new owner
 
 # The Execute Update Action
 
-_Note_: The execute update action code be found [here](https://github.com/Yakuhito/slot-machine/blob/master/rue-puzzles/actions/xchandles/execute_update.rue) ([Chialisp](https://github.com/Yakuhito/slot-machine/blob/master/puzzles/actions/xchandles/execute_update.clsp)).
+_Note_: The execute update action code can be found [here](https://github.com/Yakuhito/slot-machine/blob/master/rue-puzzles/actions/xchandles/execute_update.rue) ([Chialisp](https://github.com/Yakuhito/slot-machine/blob/master/puzzles/actions/xchandles/execute_update.clsp)).
 
 Once an update has been [initiated](the-initiate-update-action.md) and a minimum number of blocks has passed, the owner may execute the update by calling this action. In doing so, messages must also be sent from the new singleton(s) that the handle will be owned by and point to.
 
