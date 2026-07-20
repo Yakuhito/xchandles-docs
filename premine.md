@@ -50,9 +50,11 @@ Allocation type in the CSV is `cns` or `namesdao`. The allocation explanation li
 
 ### Contribution premine
 
-Handles reserved for ecosystem contributors appear in the published premine with allocation type `contributor`.
+Handles reserved for ecosystem contributors appear in the published premine with allocation type `contributor`. All contributor premine entries are found in [`contributor-premine.csv`](https://github.com/Yakuhito/nfts/blob/master/contributor-premine.csv)
 
 Contribution requests are messages to [@yakuhito](https://x.com/yakuhito) on X that include a receive address, the requested handle or handles, and a short description of contributions. The contribution deadline is **August 3, 2026 at 09:00 UTC** - requests after that instant are not considered. Confirmed allocations are merged into [`premine.csv`](https://github.com/Yakuhito/nfts/blob/master/premine.csv) before launch. Contribution-premine handles expire on **August 20, 2027 at 09:00 UTC** (one year after launch).
+
+If a handle that is already present in the base premine is requested, the recipient will NOT be changed, but the expiration will be updated to **August 20, 2027 at 09:00 UTC** (one year after launch). All handles updated as such can be found in [`contribuor-extensions.csv`](https://github.com/Yakuhito/nfts/blob/master/contributor-extensions.csv).
 
 ### Full selection details
 
@@ -87,6 +89,8 @@ Burned NFTs are still eligible: the recipient is whatever inner puzzle hash the 
 
 * Base premine: `max(legacy expiration, 2026-08-20 09:00:00 UTC) + 122 days`.
 * Contribution premine: `2027-08-20 09:00:00 UTC`.
+
+All premine handles should expire on `2027-08-20 09:00:00 UTC`  at the latest.
 
 #### Published CSV columns
 
