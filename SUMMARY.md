@@ -1,6 +1,7 @@
 # Table of contents
 
 * [XCHandles FAQ](README.md)
+* [Premine](premine.md)
 
 ## Techincal Manual
 
