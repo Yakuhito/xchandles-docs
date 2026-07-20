@@ -42,7 +42,7 @@ You can look up whether a handle is reserved on the XCHandles launch site. The c
 
 At a high level:
 
-* A legacy name can become a handle if, after removing every `.xch` substring, it is already a valid XCHandles handle (**3-63** characters, `a-z` and `0-9` only), or it becomes valid after stripping `-` and `_`.
+* A legacy name can become a handle if, after taking the substring before the first `.xch` when present (so `scott.xch 8722634` becomes `scott`; names without `.xch` are unchanged), it is already a valid XCHandles handle (**3-63** characters, `a-z` and `0-9` only), or it becomes valid after stripping `-` and `_`.
 * CNS is resolved first. NamesDAO only fills handles that CNS did not claim.
 * When several records compete for the same handle, deterministic rules pick a single winner (exact spellings beat stripped ones; active registrations beat expired ones; earlier mint time wins remaining ties).
 * The premine recipient is the NFT’s owner address at the migration cutoff - specifically the inner puzzle hash encoded as an XCH address - not a forwarding address from metadata.
@@ -52,9 +52,11 @@ Allocation type in the CSV is `cns` or `namesdao`. The allocation explanation li
 
 ## Contribution premine
 
-Handles reserved for ecosystem contributors appear in the published premine with allocation type `contributor`.
+Handles reserved for ecosystem contributors appear in the published premine with allocation type `contributor`. All contributor premine entries are found in [`contributor-premine.csv`](https://github.com/Yakuhito/nfts/blob/master/contributor-premine.csv)
 
 Contribution requests are messages to [@yakuhito](https://x.com/yakuhito) on X that include a receive address, the requested handle or handles, and a short description of contributions. The contribution deadline is **August 3, 2026 at 09:00 UTC** - requests after that instant are not considered. Confirmed allocations are merged into [`premine.csv`](https://github.com/Yakuhito/nfts/blob/master/premine.csv) before launch. Contribution-premine handles expire on **August 20, 2027 at 09:00 UTC** (one year after launch).
+
+If a handle that is already present in the base premine is requested, the recipient will NOT be changed, but the expiration will be updated to **August 20, 2027 at 09:00 UTC** (one year after launch). All handles updated as such can be found in [`contribuor-extensions.csv`](https://github.com/Yakuhito/nfts/blob/master/contributor-extensions.csv).
 
 ## Full selection details
 
@@ -63,7 +65,7 @@ This section is for readers who want the precise base-premine rules. Contributio
 ### Eligibility
 
 1. Start from CNS NFTs under creator address `xch1zdfcemh4cvcglzx03qu0czlaurt800agghz86c0m5uez4p30dvls8zjc8l` and NamesDAO NFTs under DID `did:chia:13myvry7hmp6nwpa00lqexczka652xkyujyjsecplge8c65rtdl4qd0yya7`.
-2. Read the legacy name from off-chain metadata (hash-verified). Remove every literal `.xch` substring.
+2. Read the legacy name from off-chain metadata (hash-verified). If the name contains `.xch`, keep only the substring before the first `.xch` and discard the rest (for example `scott.xch 8722634` → `scott`). Names without `.xch` are left unchanged.
 3. Classify the result:
    * **Exact** - already a valid handle (`a-z` / `0-9`, length 3-63).
    * **Stripped** - contains `-` or `_`, and removing those characters yields a valid handle.
@@ -89,6 +91,8 @@ Burned NFTs are still eligible: the recipient is whatever inner puzzle hash the 
 
 * Base premine: `max(legacy expiration, 2026-08-20 09:00:00 UTC) + 122 days`.
 * Contribution premine: `2027-08-20 09:00:00 UTC`.
+
+All premine handles should expire on `2027-08-20 09:00:00 UTC` at the latest.
 
 ### Published CSV columns
 
