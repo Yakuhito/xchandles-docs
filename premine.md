@@ -90,8 +90,6 @@ Burned NFTs are still eligible: the recipient is whatever inner puzzle hash the 
 * Base premine: `max(legacy expiration, 2026-08-20 09:00:00 UTC) + 122 days`.
 * Contribution premine: `2027-08-20 09:00:00 UTC`.
 
-All premine handles should expire at most at launch + `122 days` + `1 year and 6 months` : `2028-06-21 09:00:00 UTC` (`1845190800`)
-
 #### Published CSV columns
 
 ```
