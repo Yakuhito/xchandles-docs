@@ -40,7 +40,7 @@ You can look up whether a handle is reserved on the XCHandles launch site. The c
 
 At a high level:
 
-* A legacy name can become a handle if, after removing every `.xch` substring, it is already a valid XCHandles handle (**3-63** characters, `a-z` and `0-9` only), or it becomes valid after stripping `-` and `_`.
+* A legacy name can become a handle if, after removing the `.xch` substring (and everything that comes after it), it is already a valid XCHandles handle (**3-63** characters, `a-z` and `0-9` only), or it becomes valid after stripping `-` and `_`.
 * CNS is resolved first. NamesDAO only fills handles that CNS did not claim.
 * When several records compete for the same handle, deterministic rules pick a single winner (exact spellings beat stripped ones; active registrations beat expired ones; earlier mint time wins remaining ties).
 * The premine recipient is the NFT’s owner address at the migration cutoff - specifically the inner puzzle hash encoded as an XCH address - not a forwarding address from metadata.
@@ -61,7 +61,7 @@ This section is for readers who want the precise base-premine rules. Contributio
 #### Eligibility
 
 1. Start from CNS NFTs under creator address `xch1zdfcemh4cvcglzx03qu0czlaurt800agghz86c0m5uez4p30dvls8zjc8l` and NamesDAO NFTs under DID `did:chia:13myvry7hmp6nwpa00lqexczka652xkyujyjsecplge8c65rtdl4qd0yya7`.
-2. Read the legacy name from off-chain metadata (hash-verified). Remove every literal `.xch` substring.
+2. Read the legacy name from off-chain metadata (hash-verified). Remove the `.xch` substring if it exists, as well as anything that comes after it.
 3. Classify the result:
    * **Exact** - already a valid handle (`a-z` / `0-9`, length 3-63).
    * **Stripped** - contains `-` or `_`, and removing those characters yields a valid handle.
