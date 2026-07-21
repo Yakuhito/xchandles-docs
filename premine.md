@@ -90,6 +90,8 @@ Burned NFTs are still eligible: the recipient is whatever inner puzzle hash the 
 * Base premine: `max(legacy expiration, 2026-08-20 09:00:00 UTC) + 122 days`.
 * Contribution premine: `2027-08-20 09:00:00 UTC`.
 
+To combat hoarding, wallets with more than 10 allocated handles at launch will only be given `122 days` before the handles expire.
+
 #### Published CSV columns
 
 ```
