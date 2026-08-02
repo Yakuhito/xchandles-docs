@@ -22,7 +22,7 @@ More generally, pricing puzzles return `(price . registration_delta_seconds)`, w
 
 * `Buy_Time`: this is a timestamp verified to be in the past. Not used in the factor pricing puzzle, but added so the solution format is consistent with the exponential premium puzzle solution.
 * `Current_Expiration` , which is the verified current expiration of the handle whose price is being quoted. This will only be '0' if the handle is being registered. The factor pricing puzzle does not use this truth.
-* `Handle` , a string containing the value being registered. The pricing puzzle is expected to perform validation for this handle. For example, the factor pricing puzzle ensures a handle is 3-31 characters long and only contains 0-9a-z characters.
+* `Handle` , a string containing the value being registered. The pricing puzzle is expected to perform validation for this handle. For example, the factor pricing puzzle ensures a handle is 3-63 characters long and only contains 0-9a-z characters.
 
 The two truths may be followed by an arbitrary solution. For the factor pricing puzzle, this solution is simply `num_periods` (formerly `num_years`), which allows users to register a handle for more than 1 period at a time.
 
