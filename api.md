@@ -24,11 +24,11 @@ Liveness probe; returns an empty `200`.
 
 ## `GET /handle/{handle}`
 
-Returns a live (unspent) slot plus information about the resolved singleton (if available, name NFT data as well) for a given handle. The data can be used to construct the coin id of the latest unspent handle slot and the latest NFTs, which can be checked on-chain to exist but not be spent for confirmation.
+Returns a live (unspent) slot plus information about the resolved singleton (if available, name NFT data as well) for a given handle. The data can be used to construct the coin id of the latest unspent handle slot and the latest NFTs, which can be checked on-chain to exist but not be spent for confirmation. `pending_transfer` is `null` when no transfer is executable, or the same object as `GET /handle/{handle}/pending-transfer`.
 
 | Param | Required | Description |
 | ----- | -------- | ----------- |
-| `{handle}` | yes | Handle (in path) |
+| `{handle}` | yes | handle (in path) |
 | `launcher_id` | no | Registry launcher id (64-char hex) |
 | `include_metadata` | no | If `true`, include NFT metadata CLVM as hex (when available) |
 | `bypass_expiration_safety_check` | no | If `true`, return the proof even after expiration (`410` otherwise) |
@@ -48,7 +48,8 @@ Returns a live (unspent) slot plus information about the resolved singleton (if 
   "slot_parent_coin_id": "<hex32>",
   "slot_confirmation_height": 90,
   "resolved_singleton": { "...same shape as GET /singletons/{launcher_id}..." },
-  "indexed_peak_height": 116
+  "indexed_peak_height": 116,
+  "pending_transfer": null
 }
 ```
 
@@ -56,11 +57,11 @@ Returns a live (unspent) slot plus information about the resolved singleton (if 
 
 ## `GET /handle/{handle}/pending-transfer`
 
-Returns a performable pending ownership transfer for the handle, or `204` if none is executable. This should be queried and asserted to return 204 when an offer involving a handle NFT is accepted.
+Returns a performable pending ownership transfer for the handle, or `204` if none is executable. The same payload is also embedded as `pending_transfer` on `GET /handle/{handle}` (`null` instead of `204`). This should be queried and asserted to return 204 (or `pending_transfer: null`) when an offer involving a handle NFT is accepted.
 
 | Param | Required | Description |
 | ----- | -------- | ----------- |
-| `{handle}` | yes | Handle (in path) |
+| `{handle}` | yes | handle (in path) |
 | `launcher_id` | no | Registry launcher id |
 
 `200`:
@@ -119,7 +120,7 @@ Returns the latest confirmed register or expire action for a handle.
 
 | Param | Required | Description |
 | ----- | -------- | ----------- |
-| `{handle}` | yes | Handle (in path) |
+| `{handle}` | yes | handle (in path) |
 | `launcher_id` | no | Registry launcher id |
 
 ```json
@@ -213,7 +214,7 @@ Given a handle hash, returns the neighboring handle slots and their lineage proo
 | Param | Required | Description |
 | ----- | -------- | ----------- |
 | `launcher_id` | yes | Registry launcher id |
-| `handle_hash` | yes | Handle tree hash (64-char hex) |
+| `handle_hash` | yes | handle tree hash (64-char hex) |
 
 ```json
 {
@@ -248,7 +249,7 @@ Chain-backed reads other than `/neighbors` use:
 ```json
 {
   "code": "handle_not_found",
-  "message": "No live unspent handle slot is indexed for this handle",
+  "message": "No live handle slot is indexed for this handle",
   "request_id": "<uuid>"
 }
 ```
