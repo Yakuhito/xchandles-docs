@@ -24,7 +24,7 @@ Liveness probe; returns an empty `200`.
 
 ## `GET /handle/{handle}`
 
-Returns a live (unspent) slot plus information about the resolved singleton (if available, name NFT data as well) for a given handle. The data can be used to construct the coin id of the latest unspent handle slot and the latest NFTs, which can be checked on-chain to exist but not be spent for confirmation. `pending_transfer` is `null` when no transfer is executable, or the same object as `GET /handle/{handle}/pending-transfer`.
+Returns a live (unspent) slot plus information about the resolved singleton (if available, name NFT data as well) for a given handle. The data can be used to construct the coin id of the latest unspent handle slot and the latest NFTs, which can be checked on-chain to exist but not be spent for confirmation. `slot_parent_id` is the parent of that slot coin; `slot_parent_parent_id` and `slot_parent_inner_puzzle_hash` are its compact lineage proof (parent amount is the registry singleton amount, typically `1`). Together they are enough to spend the slot trustlessly. `pending_transfer` is `null` when no transfer is executable, or the same object as `GET /handle/{handle}/pending-transfer`.
 
 | Param | Required | Description |
 | ----- | -------- | ----------- |
@@ -45,7 +45,9 @@ Returns a live (unspent) slot plus information about the resolved singleton (if 
     "owner_launcher_id": "<hex32>",
     "resolved_launcher_id": "<hex32>"
   },
-  "slot_parent_coin_id": "<hex32>",
+  "slot_parent_id": "<hex32>",
+  "slot_parent_parent_id": "<hex32>",
+  "slot_parent_inner_puzzle_hash": "<hex32>",
   "slot_confirmation_height": 90,
   "resolved_singleton": { "...same shape as GET /singletons/{launcher_id}..." },
   "indexed_peak_height": 116,
@@ -209,7 +211,7 @@ Returns a cursor-paginated directory of handles that are in an expiration auctio
 
 ## `GET /neighbors`
 
-Given a handle hash, returns the neighboring handle slots and their lineage proofs. This endpoint alone (plus on-chain data) is enough to enable registrations for light clients.
+Given a handle hash, returns the neighboring handle slots, each slot's parent coin id, and its compact lineage proof. This endpoint alone (plus on-chain data) is enough to enable trustless registrations for light clients.
 
 | Param | Required | Description |
 | ----- | -------- | ----------- |
@@ -226,17 +228,19 @@ Given a handle hash, returns the neighboring handle slots and their lineage proo
   "left_counter": 0,
   "left_owner_launcher_id": "<hex32>",
   "left_resolved_launcher_id": "<hex32>",
+  "left_parent_id": "<hex32>",
+  "left_parent_parent_id": "<hex32>",
+  "left_parent_inner_puzzle_hash": "<hex32>",
+  "left_parent_amount": 1,
   "right_right_handle_hash": "<hex32>",
   "right_expiration": 0,
   "right_counter": 0,
   "right_owner_launcher_id": "<hex32>",
   "right_resolved_launcher_id": "<hex32>",
-  "left_parent_parent_info": "<hex32>",
-  "left_parent_inner_puzzle_hash": "<hex32>",
-  "left_parent_amount": 0,
-  "right_parent_parent_info": "<hex32>",
+  "right_parent_id": "<hex32>",
+  "right_parent_parent_id": "<hex32>",
   "right_parent_inner_puzzle_hash": "<hex32>",
-  "right_parent_amount": 0
+  "right_parent_amount": 1
 }
 ```
 
