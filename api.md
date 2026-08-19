@@ -205,7 +205,52 @@ Returns a cursor-paginated directory of handles that are in an expiration auctio
 }
 ```
 
-`next_cursor` is omitted on the last page. Fees are mojos for a 1-year registration.
+`next_cursor` is omitted on the last page. Fees are mojos for a 1-year registration. Quotes use the **effective** base: the last generation whose `activation_timestamp` is at or before `confirmed_timestamp` (what a buyer pays after unrolling). The directory does not include the generation list or remaining unrolls.
+
+---
+
+## `GET /price`
+
+Live Price Singleton snapshot: committed (pre-unroll) base, remaining executable unrolls, and index freshness. Optional `launcher_id` selects a registry; omitting it uses the default.
+
+| Param | Required | Description |
+| ----- | -------- | ----------- |
+| `launcher_id` | no | Registry launcher id |
+
+```json
+{
+  "indexed_peak_height": 116,
+  "confirmed_timestamp": 1786935600,
+  "current_base_price": 1,
+  "unrolls": [
+    { "activation_timestamp": 1786885200, "base_price": 9 },
+    { "activation_timestamp": 1786892400, "base_price": 8 }
+  ]
+}
+```
+
+`current_base_price` is the committed registry / pricing puzzle (before unrolling). `unrolls` are remaining generations from the current scheduler generation onward, in order. A row with `activation_timestamp <= confirmed_timestamp` is **due** (a wallet can unroll now). The payable base after unrolling is the last due unroll’s `base_price`, or `current_base_price` if nothing is due. Before the first generation row that value is launch price `1`. Stale index: `503` `index_stale`.
+
+---
+
+## `GET /schedule`
+
+The full static generation list baked into the Price Singleton launcher, including already-activated rows. This list does not change; the last row’s `base_price` holds after that timestamp. There are no peak or timestamp freshness fields. Optional `launcher_id` is the same as on other routes.
+
+| Param | Required | Description |
+| ----- | -------- | ----------- |
+| `launcher_id` | no | Registry launcher id |
+
+```json
+{
+  "generations": [
+    { "activation_timestamp": 1786885200, "base_price": 9 },
+    { "activation_timestamp": 1787022000, "base_price": 1 }
+  ]
+}
+```
+
+Clients use `/schedule` for future window math (reminder crossings, home tables). Do not treat a missing later row as a vault-era fallback.
 
 ---
 
