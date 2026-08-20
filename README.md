@@ -24,7 +24,7 @@ When speaking, you can refer to XCHandles simply as "handles." If you think the 
 
 ### Who controls pricing?
 
-A price singleton has the ability to update the payment CAT for handles. The singleton also has control over the pricing and expired pricing puzzles, enabling it to change the pricing strategy of XCHandles if needed. The pricing singleton is currently a 7-of-11 multisig controlled by [warp.green validators](https://docs.warp.green/#who-are-the-validators).&#x20;
+A price singleton has the ability to update the payment CAT for handles. The singleton also has control over the pricing and expired pricing puzzles, enabling it to change the pricing strategy of XCHandles if needed. The pricing singleton is currently a 6-of-10 multisig controlled by [warp.green validators](https://docs.warp.green/#who-are-the-validators).&#x20;
 
 ### How do I know that XCHandles was properly deployed? <a href="#how-do-i-know-xchandles-was-properly-deployed" id="how-do-i-know-xchandles-was-properly-deployed"></a>
 
@@ -35,3 +35,9 @@ cargo r xchandles verify-deployment --launcher-id <hex> [--testnet11]
 ```
 
 On testnet11, the command checks the on-chain registry against trusted CSV files bundled with slot-machine (`xchandles_premine_testnet11.csv` and `xchandles_price_schedule_testnet11.csv`). See the [CLI reference](technical-manual/cli/xchandles.md#verify-deployment) for details.
+
+To verify the deployment of the root registry on mainnet, you can run:
+
+```bash
+cargo r --release xchandles verify-deployment --launcher-id 6f314f69a9cf776311e1c7781a3013e4daae3696c71d8a04d049a5af1530f050 --premine xchandles_premine_mainnet.csv
+```
