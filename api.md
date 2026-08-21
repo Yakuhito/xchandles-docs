@@ -70,13 +70,12 @@ Returns a performable pending ownership transfer for the handle, or `204` if non
 
 ```json
 {
-  "handle_hash": "<hex32>",
   "new_owner_launcher_id": "<hex32>",
   "new_resolved_launcher_id": "<hex32>",
   "update_confirmation_height": 100,
   "minimum_execution_height": 150,
-  "update_initiator_coin_id": "<hex32>",
-  "current_executor_coin_id": "<hex32>"
+  "initiator_coin_id": "<hex32>",
+  "executor_coin_id": "<hex32>"
 }
 ```
 
@@ -256,7 +255,7 @@ Clients use `/schedule` for future window math (reminder crossings, home tables)
 
 ## `GET /neighbors`
 
-Given a handle hash, returns the neighboring handle slots, each slot's parent coin id, and its compact lineage proof. This endpoint alone (plus on-chain data) is enough to enable trustless registrations for light clients.
+Given a handle hash, returns the neighboring handle slots, each slot's parent coin id, and its compact lineage proof (`parent_parent_id` and `parent_inner_puzzle_hash`; parent amount is always `1`). This endpoint alone (plus on-chain data) is enough to enable trustless registrations for light clients.
 
 | Param | Required | Description |
 | ----- | -------- | ----------- |
@@ -265,7 +264,6 @@ Given a handle hash, returns the neighboring handle slots, each slot's parent co
 
 ```json
 {
-  "handle_hash": "<hex32>",
   "left_handle_hash": "<hex32>",
   "right_handle_hash": "<hex32>",
   "left_left_handle_hash": "<hex32>",
@@ -276,7 +274,6 @@ Given a handle hash, returns the neighboring handle slots, each slot's parent co
   "left_parent_id": "<hex32>",
   "left_parent_parent_id": "<hex32>",
   "left_parent_inner_puzzle_hash": "<hex32>",
-  "left_parent_amount": 1,
   "right_right_handle_hash": "<hex32>",
   "right_expiration": 0,
   "right_counter": 0,
@@ -284,8 +281,7 @@ Given a handle hash, returns the neighboring handle slots, each slot's parent co
   "right_resolved_launcher_id": "<hex32>",
   "right_parent_id": "<hex32>",
   "right_parent_parent_id": "<hex32>",
-  "right_parent_inner_puzzle_hash": "<hex32>",
-  "right_parent_amount": 1
+  "right_parent_inner_puzzle_hash": "<hex32>"
 }
 ```
 
