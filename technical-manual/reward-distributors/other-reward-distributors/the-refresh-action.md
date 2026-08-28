@@ -10,6 +10,6 @@ The refresh action is the newest addition to the reward distributor repertoire. 
 
 The refresh action allows curated NFT reward distributors to be refreshable. Anyone can trigger this action to essentially restake a set of NFTs whose weights mismatch those in the DataLayer store. Presumably, the owner themselves would call it after the store is updated - if that is not the case, a third party observer may.
 
-In essence, the action triggers payouts, then unstakes and immediately stakes NFTs to change their weight (stores as part of the nonce of the `p2_singleton` puzzle they are locked with) without sending them to their original owner(s). The locked NFT coins create new locked NFT coins with updated weights. This thus allows curated NFT reward distributors to respond to updates of dynamic lists, where weights (e.g., an NFT's rarity) may be changed at any time by the store owner.
+The NFT's weight lives in its deposit slot, not in a nonce on the `p2_singleton` lock. Refresh proves the new DataLayer leaf, spends the old deposit slot (`old_shares`), creates a new deposit slot (`new_shares`), and restakes the NFT still at `my_p2` - the delegated puzzle recreates the locked coin there with the same settlement hint. The share delta must be nonzero; both new and old shares must be `>= 0`. This thus allows curated NFT reward distributors to respond to updates of dynamic lists, where weights (e.g., an NFT's rarity) may be changed at any time by the store owner.
 
-_Written by_ [_yakuhito_](https://x.com/yakuhito) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Feb 2nd, 2026._
+_Written by_ [_yakuhito_](https://x.com/yakuhito) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Aug 28th, 2026._

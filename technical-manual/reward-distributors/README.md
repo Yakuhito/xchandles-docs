@@ -48,11 +48,20 @@ The DIG reward distributor is the first app to use different types of slots. As 
 * **Nonce 1**: Reward slots. These hold `(epoch_start next_epoch_initialized . rewards)`. The epoch start timestamp is considered the slot's 'key' and should be unique. The second argument is 1 if the next epoch has been initialized - i.e., a slot exists with a key of `epoch_start + EPOCH_SECONDS`. The last value in the slot keeps track of the total amount of rewards committed to the epoch, including the manager fee (which will be deducted when the epoch starts). Note that a slot will no longer be accurate when the epoch starts, as anyone can add rewards to the current epoch (which does not modify 'rewards'). Moreover, undistributed rewards from previous epochs (i.e., 'change' that cannot be distributed to mirrors) will also be added to the rewards of the epoch. For example, if there are 7 shares, it's possible that a change of 5 mojos might exist, which will be 'carried over' the next epoch. Lastly, the manager will be paid out \~x% of the rewards, where x is a constant defined at reward distributor launch.
 * **Nonce 2**: Commitment slots. These hold `(epoch_start clawback_ph  . rewards)`and function as 'tickets' that allow users that committed funds to a future epoch to claw part of their funds back.
 * **Nonce 3**: Entry slots. These hold `(payout_puzzle_hash initial_cumulative_payout . shares)` . The first argument identifies an entry (e.g., mirror) by its payout puzzle hash. Shares describe how much an entry should be rewarded (approx. `shares / total_shares * rewards_per_second` for every second). The cumulative payout describes how much a theoretical entry holding 1 share that has been active since registry launch should be paid. By calculating the difference between the current value and the value when the entry was added, we can say how much a share needs to be paid. Since all shares are paid equally, multiplying the difference by the amount of shares yields the payout amount for a given recipient. In V2, stake/unstake puzzles allow stakes to be consolidated, allowing multiple staked entries (NFTs/CATs) to be 'stored' inside a single entry slot - thus ensuring payouts only use one coin.
+* **Nonce 4**: Deposit slots. These hold `(payout_puzzle_hash shares . launcher_id_or_cat_amount)`. The locking puzzle creates one at stake; the matching unlocking puzzle spends it at unstake. Refresh spends the old deposit slot and creates a new one. The hint is the custody/payout puzzle hash, same as entry slots. For CATs, both `shares` and `launcher_id_or_cat_amount` are the CAT amount. For NFTs, `shares` is the credited weight and the third field is the NFT launcher id. Unlike entry and reward slots, deposit slots have no counter - identical triples share one puzzle hash. In Rue:
 
-Note that neither nonce 0/None (i.e., no nonce) are used for the Reward Distributor.
+```rs
+export struct DepositSlotValue {
+    payout_puzzle_hash: Bytes32,
+    shares: Int,
+    ...launcher_id_or_cat_amount: Bytes32 | Int,
+}
+```
+
+Note that nonce 0/None (i.e., no nonce) is not used for the Reward Distributor.
 
 ### Available Actions
 
 For non-manager modes, the [Add Entry](managed-reward-distributor/the-add-entry-action.md) and [Remove Entry](managed-reward-distributor/the-remove-entry-action.md) actions are replaced by [Stake](other-reward-distributors/the-stake-action.md) and [Unstake](other-reward-distributors/the-unstake-action.md) actions, each containing a specific locking puzzles (as detailed on the stake action page). Moreover, the [Initiate Payout](the-initiate-payout-action.md) action can be set to one of two puzzles, depending on whether the recipient needs to approve a payment or not.&#x20;
 
-_Written by_ [_yakuhito_](https://x.com/yakuhito) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Feb 16th, 2025._
+_Written by_ [_yakuhito_](https://x.com/yakuhito) _from_ [_FireAcademy.io_](https://fireacademy.io/) _on Aug 28th, 2026._
